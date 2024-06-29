@@ -1,0 +1,18 @@
+{
+  "name": "frontier-docs",
+  "version": "0.0.1",
+  "description": "Frontier documentation.",
+  "authors": {
+    "name": "admin@parity.io",
+    "email": "Parity Technologies"
+  },
+  "repository": "https://github.com/paritytech/frontier",
+  "scripts": {
+    "dev": "NODE_OPTIONS=--openssl-legacy-provider vuepress dev .",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider vuepress build ."
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "vuepress": "^1.9.9"
+  }
+}

@@ -1,0 +1,10 @@
+{
+    "jsonrpc":"2.0",
+    "id":1,
+    "method":"author_insertKey",
+    "params": [
+        "audi",
+        "kangaroo talent vintage clarify follow pupil room wife north crunch surge chimney//1//authority_discovery",
+        "0xdeeaa177230a283968152a3dfbd37b48b4d64de7d69f0dcc699fb9abf56ee029"
+    ]
+}

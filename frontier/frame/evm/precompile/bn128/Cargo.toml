@@ -1,0 +1,28 @@
+[package]
+name = "pallet-evm-precompile-bn128"
+version = "2.0.0-dev"
+license = "Apache-2.0"
+description = "BN128 precompiles for EVM pallet."
+authors = { workspace = true }
+edition = { workspace = true }
+repository = { workspace = true }
+
+[dependencies]
+bn = { workspace = true }
+# Substrate
+sp-core = { workspace = true }
+# Frontier
+fp-evm = { workspace = true }
+
+[dev-dependencies]
+# Frontier
+pallet-evm-test-vector-support = { workspace = true }
+
+[features]
+default = ["std"]
+std = [
+	# Substrate
+	"sp-core/std",
+	# Frontier
+	"fp-evm/std",
+]

@@ -1,0 +1,47 @@
+[package]
+name = "fc-cli"
+version = "1.0.0-dev"
+license = "GPL-3.0-or-later WITH Classpath-exception-2.0"
+description = "Frontier CLI interface"
+authors = { workspace = true }
+edition = { workspace = true }
+repository = { workspace = true }
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+clap = { workspace = true }
+ethereum-types = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+# Substrate
+sc-cli = { workspace = true }
+sp-api = { workspace = true }
+sp-blockchain = { workspace = true }
+sp-runtime = { workspace = true }
+# Frontier
+fc-db = { workspace = true }
+fp-rpc = { workspace = true, features = ["default"] }
+fp-storage = { workspace = true, features = ["default"] }
+
+[dev-dependencies]
+futures = { workspace = true }
+scale-codec = { package = "parity-scale-codec", workspace = true }
+tempfile = "3.3.0"
+# Substrate
+sc-block-builder = { workspace = true }
+sc-client-db = { workspace = true, features = ["rocksdb"] }
+sp-consensus = { workspace = true }
+sp-io = { workspace = true }
+substrate-test-runtime-client = { workspace = true }
+# Frontier
+fc-db = { workspace = true, features = ["rocksdb"] }
+frontier-template-runtime = { workspace = true, features = ["default"] }
+
+[features]
+default = ["rocksdb"]
+rocksdb = [
+	"sc-cli/rocksdb",
+	"fc-db/rocksdb",
+]

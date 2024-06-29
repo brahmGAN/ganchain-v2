@@ -1,0 +1,10 @@
+{
+    "jsonrpc":"2.0",
+    "id":1,
+    "method":"author_insertKey",
+    "params": [
+        "imol",
+        "kangaroo talent vintage clarify follow pupil room wife north crunch surge chimney//1//im_online",
+        "0x0cb9d25b47aec99c843ff06b764c8544b5716cfb13aff68e481e65e2e35bd47f"
+    ]
+}

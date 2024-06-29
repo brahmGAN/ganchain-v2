@@ -1,0 +1,330 @@
+[package]
+name = "gpu-runtime"
+version = "1.0.1"
+authors = ["gpu <info@gpu.org>"]
+edition = "2021"
+build = "build.rs"
+
+[dependencies]
+hex-literal = { version = "0.4.1", optional = true }
+bitvec = { version = "1.0.0", default-features = false, features = ["alloc"] }
+parity-scale-codec = { version = "3.6.1", default-features = false, features = ["derive", "max-encoded-len"] }
+scale-info = { version = "2.5.0", default-features = false, features = ["derive"] }
+log = { version = "0.4.17", default-features = false }
+rustc-hex = { version = "2.1.0", default-features = false }
+serde = { version = "1.0.163", default-features = false }
+serde_derive = { version = "1.0.117", optional = true }
+static_assertions = "1.1.0"
+smallvec = "1.8.0"
+
+authority-discovery-primitives = { package = "sp-authority-discovery", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+babe-primitives = { package = "sp-consensus-babe", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+block-builder-api = { package = "sp-block-builder", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+inherents = { package = "sp-inherents", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+offchain-primitives = { package = "sp-offchain", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+tx-pool-api = { package = "sp-transaction-pool", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-api = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-arithmetic = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-std = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-io = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-runtime = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-staking = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-core = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-session = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-version = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-npos-elections = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+
+frame-election-provider-support = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+frame-executive = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+frame-support = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+frame-system = {git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+frame-system-rpc-runtime-api = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+
+pallet-assets = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-authority-discovery = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-authorship = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-babe = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-bags-list = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-balances = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-bounties = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-child-bounties = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-conviction-voting = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-contracts = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-contracts-primitives = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-democracy = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-elections-phragmen = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-election-provider-multi-phase = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-fast-unstake = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-grandpa = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-identity = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-im-online = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-indices = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-membership = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-message-queue = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-multisig = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-nftmap = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-offences = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-preimage = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-proxy = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-recovery = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-referenda = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-scheduler = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-session = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-staking = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-staking-reward-curve = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+pallet-staking-runtime-api = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-timestamp = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-sudo = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-transaction-payment = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-transaction-payment-rpc-runtime-api = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-treasury = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-utility = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-vesting = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-whitelist = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+
+frame-benchmarking = { git = "https://github.com/brahmGAN/substrate", default-features = false, optional = true , branch = "polkadot-v1.0.0" }
+frame-try-runtime = { git = "https://github.com/brahmGAN/substrate", default-features = false, optional = true , branch = "polkadot-v1.0.0" }
+frame-system-benchmarking = { git = "https://github.com/brahmGAN/substrate", default-features = false, optional = true , branch = "polkadot-v1.0.0" }
+pallet-election-provider-support-benchmarking = { git = "https://github.com/brahmGAN/substrate", default-features = false, optional = true , branch = "polkadot-v1.0.0" }
+pallet-offences-benchmarking = { git = "https://github.com/brahmGAN/substrate", default-features = false, optional = true , branch = "polkadot-v1.0.0" }
+pallet-session-benchmarking = { git = "https://github.com/brahmGAN/substrate", default-features = false, optional = true , branch = "polkadot-v1.0.0" }
+
+runtime-common = { package = "gpu-runtime-common", path = "../common", default-features = false }
+primitives = { package = "gpu-primitives", path = "../../primitives", default-features = false }
+gpu-runtime-constants = { package = "gpu-runtime-constants", path = "./constants", default-features = false }
+
+# Evm and Frontier
+fp-rpc = { path = "../../frontier/primitives/rpc", default-features = false }
+fp-self-contained = { path = "../../frontier/primitives/self-contained", default-features = false, features = ["serde"] }
+
+pallet-base-fee = { path = "../../frontier/frame/base-fee", default-features = false }
+pallet-ethereum = { path = "../../frontier/frame/ethereum", default-features = false }
+pallet-evm = { path = "../../frontier/frame/evm", default-features = false }
+pallet-custom-signatures = { path = "../../pallets/custom-signatures", default-features = false  }
+pallet-evm-precompile-assets-erc20 = { path = "../../pallets/precompiles/assets-erc20", default-features = false  }
+pallet-evm-precompile-batch = { path = "../../pallets/precompiles/batch", default-features = false }
+pallet-evm-precompile-sr25519 = { path = "../../pallets/precompiles/sr25519", default-features = false }
+pallet-evm-precompile-substrate-ecdsa = { path = "../../pallets/precompiles/substrate-ecdsa", default-features = false }
+pallet-evm-precompile-blake2 = { path = "../../frontier/frame/evm/precompile/blake2", default-features = false }
+pallet-evm-precompile-bn128 = { path = "../../frontier/frame/evm/precompile/bn128", default-features = false }
+pallet-evm-precompile-dispatch = { path = "../../frontier/frame/evm/precompile/dispatch", default-features = false }
+pallet-evm-precompile-ed25519 = { path = "../../frontier/frame/evm/precompile/ed25519", default-features = false }
+pallet-evm-precompile-modexp = { path = "../../frontier/frame/evm/precompile/modexp", default-features = false }
+pallet-evm-precompile-sha3fips = { path = "../../frontier/frame/evm/precompile/sha3fips", default-features = false }
+pallet-evm-precompile-simple = { path = "../../frontier/frame/evm/precompile/simple", default-features = false }
+
+[dev-dependencies]
+hex-literal = "0.3.4"
+tiny-keccak = { version = "2.0.2", features = ["keccak"] }
+keyring = { package = "sp-keyring", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sp-trie = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+serde_json = "1.0.81"
+separator = "0.4.1"
+remote-externalities = { git = "https://github.com/brahmGAN/substrate", package = "frame-remote-externalities" , branch = "polkadot-v1.0.0" }
+tokio = { version = "1.19.2", features = ["macros"] }
+sp-tracing = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+
+[build-dependencies]
+substrate-wasm-builder = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+
+[features]
+default = ["std"]
+no_std = []
+only-staking = []
+std = [
+	"serde_derive",
+	"serde/std",
+	"log/std",
+	"bitvec/std",
+	"rustc-hex/std",
+	"parity-scale-codec/std",
+	"scale-info/std",
+	"authority-discovery-primitives/std",
+	"primitives/std",
+	"inherents/std",
+	"sp-core/std",
+	"sp-api/std",
+	"tx-pool-api/std",
+	"block-builder-api/std",
+	"offchain-primitives/std",
+	"sp-std/std",
+	"sp-runtime/std",
+	"sp-arithmetic/std",
+	"sp-staking/std",
+	"sp-version/std",
+	"sp-npos-elections/std",
+	"babe-primitives/std",
+	"sp-session/std",
+	"fp-rpc/std",
+	"fp-self-contained/std",
+	"frame-try-runtime/std",
+	"frame-election-provider-support/std",
+	"frame-support/std",
+	"frame-executive/std",
+	"frame-system/std",
+	"frame-system-rpc-runtime-api/std",
+	"pallet-assets/std",
+	"pallet-authority-discovery/std",
+	"pallet-authorship/std",
+	"pallet-bags-list/std",
+	"pallet-balances/std",
+	"pallet-bounties/std",
+	"pallet-child-bounties/std",
+	"pallet-referenda/std",
+	"pallet-conviction-voting/std",
+	"pallet-contracts/std",
+	"pallet-contracts-primitives/std",
+	"pallet-transaction-payment/std",
+	"pallet-transaction-payment-rpc-runtime-api/std",
+	"pallet-elections-phragmen/std",
+	"pallet-election-provider-multi-phase/std",
+	"pallet-democracy/std",
+	"pallet-fast-unstake/std",
+	"pallet-grandpa/std",
+	"pallet-identity/std",
+	"pallet-im-online/std",
+	"pallet-indices/std",
+	"pallet-membership/std",
+	"pallet-message-queue/std",
+	"pallet-multisig/std",
+	"pallet-nftmap/std",
+	"pallet-offences/std",
+	"pallet-preimage/std",
+	"pallet-proxy/std",
+	"pallet-scheduler/std",
+	"pallet-session/std",
+	"pallet-staking/std",
+	"pallet-timestamp/std",
+	"pallet-treasury/std",
+	"pallet-babe/std",
+	"pallet-vesting/std",
+	"pallet-utility/std",
+	"pallet-whitelist/std",
+	"pallet-staking-runtime-api/std",
+	"pallet-sudo/std",
+	"pallet-recovery/std",
+	"pallet-base-fee/std",
+	"pallet-ethereum/std",
+	"pallet-evm/std",
+	"pallet-custom-signatures/std",
+	"pallet-evm-precompile-assets-erc20/std",
+	"pallet-evm-precompile-batch/std",
+	"pallet-evm-precompile-sr25519/std",
+	"pallet-evm-precompile-substrate-ecdsa/std",
+	"pallet-evm-precompile-blake2/std",
+	"pallet-evm-precompile-bn128/std",
+	"pallet-evm-precompile-dispatch/std",
+	"pallet-evm-precompile-ed25519/std",
+	"pallet-evm-precompile-modexp/std",
+	"pallet-evm-precompile-sha3fips/std",
+	"pallet-evm-precompile-simple/std",
+	"gpu-runtime-constants/std",
+	"runtime-common/std",
+]
+runtime-benchmarks = [
+	"runtime-common/runtime-benchmarks",
+	"frame-benchmarking/runtime-benchmarks",
+	"frame-support/runtime-benchmarks",
+	"frame-system/runtime-benchmarks",
+	"sp-runtime/runtime-benchmarks",
+	"pallet-babe/runtime-benchmarks",
+	"pallet-bags-list/runtime-benchmarks",
+	"pallet-balances/runtime-benchmarks",
+	"pallet-democracy/runtime-benchmarks",
+	"pallet-conviction-voting/runtime-benchmarks",
+	"pallet-elections-phragmen/runtime-benchmarks",
+	"pallet-message-queue/runtime-benchmarks",
+	"pallet-election-provider-multi-phase/runtime-benchmarks",
+	"pallet-election-provider-support-benchmarking/runtime-benchmarks",
+	"pallet-fast-unstake/runtime-benchmarks",
+	"pallet-grandpa/runtime-benchmarks",
+	"pallet-identity/runtime-benchmarks",
+	"pallet-im-online/runtime-benchmarks",
+	"pallet-assets/runtime-benchmarks",
+	"pallet-contracts/runtime-benchmarks",
+	"pallet-indices/runtime-benchmarks",
+	"pallet-membership/runtime-benchmarks",
+	"pallet-multisig/runtime-benchmarks",
+	"pallet-preimage/runtime-benchmarks",
+	"pallet-proxy/runtime-benchmarks",
+	"pallet-scheduler/runtime-benchmarks",
+	"pallet-staking/runtime-benchmarks",
+	"pallet-timestamp/runtime-benchmarks",
+	"pallet-treasury/runtime-benchmarks",
+	"pallet-bounties/runtime-benchmarks",
+	"pallet-child-bounties/runtime-benchmarks",
+	"pallet-utility/runtime-benchmarks",
+	"pallet-vesting/runtime-benchmarks",
+	"pallet-whitelist/runtime-benchmarks",
+	"pallet-referenda/runtime-benchmarks",
+	"pallet-offences-benchmarking/runtime-benchmarks",
+	"pallet-session-benchmarking/runtime-benchmarks",
+	"frame-system-benchmarking/runtime-benchmarks",
+	"hex-literal",
+	"frame-election-provider-support/runtime-benchmarks",
+]
+try-runtime = [
+	"fp-self-contained/try-runtime",
+	"frame-executive/try-runtime",
+	"frame-try-runtime",
+	"frame-system/try-runtime",
+	"runtime-common/try-runtime",
+	"pallet-authority-discovery/try-runtime",
+	"pallet-authorship/try-runtime",
+	"pallet-balances/try-runtime",
+	"pallet-bags-list/try-runtime",
+	"pallet-assets/try-runtime",
+	"pallet-bounties/try-runtime",
+	"pallet-child-bounties/try-runtime",
+	"pallet-conviction-voting/try-runtime",
+	"pallet-transaction-payment/try-runtime",
+	"pallet-elections-phragmen/try-runtime",
+	"pallet-election-provider-multi-phase/try-runtime",
+	"pallet-fast-unstake/try-runtime",
+	"pallet-democracy/try-runtime",
+	"pallet-grandpa/try-runtime",
+	"pallet-identity/try-runtime",
+	"pallet-im-online/try-runtime",
+	"pallet-contracts/try-runtime",
+	"pallet-indices/try-runtime",
+	"pallet-membership/try-runtime",
+	"pallet-message-queue/try-runtime",
+	"pallet-multisig/try-runtime",
+	"pallet-offences/try-runtime",
+	"pallet-preimage/try-runtime",
+	"pallet-proxy/try-runtime",
+	"pallet-scheduler/try-runtime",
+	"pallet-whitelist/try-runtime",
+	"pallet-session/try-runtime",
+	"pallet-staking/try-runtime",
+	"pallet-timestamp/try-runtime",
+	"pallet-custom-signatures/try-runtime",
+	"pallet-treasury/try-runtime",
+	"pallet-babe/try-runtime",
+	"pallet-referenda/try-runtime",
+	"pallet-vesting/try-runtime",
+	"pallet-utility/try-runtime",
+	"pallet-evm/try-runtime",
+	"pallet-base-fee/try-runtime",
+	"pallet-ethereum/try-runtime",
+]
+# When enabled, the runtime API will not be build.
+#
+# This is required by Cumulus to access certain types of the
+# runtime without clashing with the runtime API exported functions
+# in WASM.
+disable-runtime-api = []
+
+# A feature that should be enabled when the runtime should be build for on-chain
+# deployment. This will disable stuff that shouldn't be part of the on-chain wasm
+# to make it smaller like logging for example.
+on-chain-release-build = [
+	"sp-api/disable-logging",
+]
+
+# Set timing constants (e.g. session period) to faster versions to speed up testing.
+fast-runtime = []
+
+runtime-testnet = []
+
+runtime-metrics = ["sp-io/with-tracing"]

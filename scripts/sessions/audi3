@@ -1,0 +1,10 @@
+{
+    "jsonrpc":"2.0",
+    "id":1,
+    "method":"author_insertKey",
+    "params": [
+        "audi",
+        "rally danger scheme there cave keep early pond hour umbrella water blanket//1//authority_discovery",
+        "0xa2f48c4f4e1222424b28ef33e64813310f938dccd3b0b1da6f52d7d84522b122"
+    ]
+}

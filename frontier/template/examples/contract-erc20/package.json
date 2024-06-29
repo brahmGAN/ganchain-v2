@@ -1,0 +1,11 @@
+{
+	"name": "frontier-template-contract-erc20",
+	"version": "0.0.0",
+	"dependencies": {
+		"@polkadot/api": "^1.16.0-beta.2",
+		"@polkadot/util-crypto": "^2.10.1",
+		"ts-node": "^8.10.1",
+		"typescript": "^3.9.3",
+		"web3x": "^4.0.6"
+	}
+}

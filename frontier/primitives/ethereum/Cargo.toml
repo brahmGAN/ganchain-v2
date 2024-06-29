@@ -1,0 +1,36 @@
+[package]
+name = "fp-ethereum"
+version = "1.0.0-dev"
+license = "Apache-2.0"
+description = "Primitive Ethereum types."
+authors = { workspace = true }
+edition = { workspace = true }
+repository = { workspace = true }
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+ethereum = { workspace = true, features = ["with-codec"] }
+ethereum-types = { workspace = true }
+num_enum = { version = "0.6.1", default-features = false }
+scale-codec = { package = "parity-scale-codec", workspace = true }
+# Substrate
+frame-support = { workspace = true }
+sp-std = { workspace = true }
+# Frontier
+fp-evm = { workspace = true }
+
+[features]
+default = ["std"]
+std = [
+	"ethereum/std",
+	"ethereum-types/std",
+	"num_enum/std",
+	"scale-codec/std",
+	# Substrate
+	"frame-support/std",
+	"sp-std/std",
+	# Frontier
+	"fp-evm/std",
+]

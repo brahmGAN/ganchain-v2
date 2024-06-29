@@ -1,0 +1,27 @@
+[package]
+name = "fc-storage"
+version = "1.0.0-dev"
+license = "GPL-3.0-or-later WITH Classpath-exception-2.0"
+description = "Ethereum storage compatibility layer for Substrate."
+authors = { workspace = true }
+edition = { workspace = true }
+repository = { workspace = true }
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+ethereum = { workspace = true, features = ["with-codec"] }
+ethereum-types = { workspace = true }
+scale-codec = { package = "parity-scale-codec", workspace = true }
+
+# Substrate
+sc-client-api = { workspace = true }
+sp-api = { workspace = true }
+sp-blockchain = { workspace = true }
+sp-io = { workspace = true }
+sp-runtime = { workspace = true }
+sp-storage = { workspace = true }
+# Frontier
+fp-rpc = { workspace = true, features = ["default"] }
+fp-storage = { workspace = true, features = ["default"] }

@@ -1,0 +1,10 @@
+{
+    "jsonrpc":"2.0",
+    "id":1,
+    "method":"author_insertKey",
+    "params": [
+        "gran",
+        "mask visual float surface digital void found eyebrow hat quit place shed//1//grandpa",
+        "0xd993d45491765a71d2212d4242948a4e4a3293514ae30e5d0f6bc686c7bec4dd"
+    ]
+}

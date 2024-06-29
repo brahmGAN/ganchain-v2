@@ -1,0 +1,34 @@
+[Unit]
+Description=gpu Node
+After=network.target
+Documentation=https://github.com/gpu/gpu
+
+[Service]
+EnvironmentFile=-/etc/default/gpu
+ExecStart=/usr/bin/gpu --validator --base-path /gpu/validator
+Restart=always
+RestartSec=120
+CapabilityBoundingSet=
+LockPersonality=true
+NoNewPrivileges=true
+PrivateDevices=true
+PrivateMounts=true
+PrivateTmp=true
+PrivateUsers=true
+ProtectClock=true
+ProtectControlGroups=true
+ProtectHostname=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+ProtectSystem=strict
+RemoveIPC=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_NETLINK AF_UNIX
+RestrictNamespaces=true
+RestrictSUIDSGID=true
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallFilter=~@clock @module @mount @reboot @swap @privileged
+UMask=0027
+
+[Install]
+WantedBy=multi-user.target

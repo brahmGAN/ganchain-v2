@@ -1,0 +1,20 @@
+[package]
+name = "precompile-utils-macro"
+authors = ["StakeTechnologies", "PureStake"]
+description = ""
+edition = "2021"
+version = "0.1.0"
+
+[lib]
+proc-macro = true
+
+[[test]]
+name = "tests"
+path = "tests/tests.rs"
+
+[dependencies]
+num_enum = { version = "0.5.3", default-features = false }
+proc-macro2 = "1.0.66"
+quote = "1.0.33"
+sha3 = { version = "0.10.1", default-features = false }
+syn = { version = "1.0.109", features = ["extra-traits", "fold", "full", "visit"] }

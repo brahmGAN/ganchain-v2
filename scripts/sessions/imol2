@@ -1,0 +1,10 @@
+{
+    "jsonrpc":"2.0",
+    "id":1,
+    "method":"author_insertKey",
+    "params": [
+        "imol",
+        "bullet bargain crack true bracket hunt violin miss quantum dignity misery outside//1//im_online",
+        "0x6c9e380f3133d08c33be12b02bc4c0db946cfe3c71f7d1245a772fd27350776b"
+    ]
+}

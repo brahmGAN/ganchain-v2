@@ -1,0 +1,10 @@
+{
+    "jsonrpc":"2.0",
+    "id":1,
+    "method":"author_insertKey",
+    "params": [
+        "babe",
+        "mask visual float surface digital void found eyebrow hat quit place shed//1//babe",
+        "0x060d28ebe6b91776bedfd17364e6182b5eeff7cb901899d53417f96a2ca92023"
+    ]
+}

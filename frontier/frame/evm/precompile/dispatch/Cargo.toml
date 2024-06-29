@@ -1,0 +1,38 @@
+[package]
+name = "pallet-evm-precompile-dispatch"
+version = "2.0.0-dev"
+license = "Apache-2.0"
+description = "DISPATCH precompiles for EVM pallet."
+authors = { workspace = true }
+edition = { workspace = true }
+repository = { workspace = true }
+
+[dependencies]
+# Substrate
+frame-support = { workspace = true }
+# Frontier
+fp-evm = { workspace = true }
+pallet-evm = { workspace = true }
+
+[dev-dependencies]
+scale-codec = { package = "parity-scale-codec", workspace = true }
+scale-info = { workspace = true }
+# Substrate
+frame-system = { workspace = true, features = ["default"] }
+pallet-balances = { workspace = true, features = ["default", "insecure_zero_ed"] }
+pallet-timestamp = { workspace = true, features = ["default"] }
+pallet-utility = { workspace = true, features = ["default"] }
+sp-core = { workspace = true, features = ["default"] }
+sp-io = { workspace = true, features = ["default"] }
+sp-runtime = { workspace = true, features = ["default"] }
+sp-std = { workspace = true, features = ["default"] }
+
+[features]
+default = ["std"]
+std = [
+	# Substrate
+	"frame-support/std",
+	# Frontier
+	"fp-evm/std",
+	"pallet-evm/std",
+]

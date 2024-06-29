@@ -1,0 +1,25 @@
+[package]
+name = "fp-storage"
+version = "2.0.0"
+license = "Apache-2.0"
+description = "Storage primitives for Ethereum RPC (web3) compatibility layer for Substrate."
+authors = { workspace = true }
+edition = { workspace = true }
+repository = { workspace = true }
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+scale-codec = { package = "parity-scale-codec", workspace = true }
+serde = { workspace = true, optional = true }
+
+[features]
+default = ["std"]
+std = [
+	"scale-codec/std",
+	"serde/std",
+]
+serde = [
+	"dep:serde",
+]

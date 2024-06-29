@@ -1,0 +1,5 @@
+# A codeowner just oversees some part of the codebase. If an owned file is changed then the
+# corresponding codeowner receives a review request. An approval of the codeowner is
+# not required for merging a PR.
+
+* @sorpaas

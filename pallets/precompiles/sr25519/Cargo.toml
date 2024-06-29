@@ -1,0 +1,49 @@
+[package]
+name = "pallet-evm-precompile-sr25519"
+description = "SR25519 crypto support for EVM."
+version = "1.2.1"
+edition = "2021"
+authors = ["Stake Technologies <devops@stake.co.jp>"]
+homepage = "https://astar.network"
+repository = "https://github.com/AstarNetwork/Astar"
+
+[dependencies]
+log = { version = "0.4.17", default-features = false }
+num_enum = { version = "0.5.3", default-features = false }
+precompile-utils = { path ="../utils", default-features = false }
+
+# Substrate
+parity-scale-codec = { version = "3.6.1", default-features = false, features = ["max-encoded-len"] }
+sp-core = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-io = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-std = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+
+# Frontier
+fp-evm = { path = "../../../frontier/primitives/evm", default-features = false }
+pallet-evm = { path = "../../../frontier/frame/evm", default-features = false }
+
+[dev-dependencies]
+derive_more = { version = "0.99" }
+hex-literal = "0.4.1"
+scale-info = { version = "2.5.0", default-features = false, features = ["derive"] }
+serde = { version = "1.0.151", features = ["derive"] }
+
+precompile-utils = { path ="../utils", features = ["testing"] }
+
+frame-support = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+frame-system = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+pallet-balances = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+pallet-timestamp = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sp-runtime = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+
+[features]
+default = ["std"]
+std = [
+	"parity-scale-codec/std",
+	"fp-evm/std",
+	"pallet-evm/std",
+	"precompile-utils/std",
+	"sp-core/std",
+	"sp-std/std",
+	"sp-io/std",
+]

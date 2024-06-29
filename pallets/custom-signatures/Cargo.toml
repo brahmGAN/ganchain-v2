@@ -1,0 +1,44 @@
+[package]
+name = "pallet-custom-signatures"
+version = "4.6.0"
+license = "Apache-2.0"
+description = "FRAME pallet for user defined extrinsic signatures"
+edition = "2021"
+authors = ["Stake Technologies <devops@stake.co.jp>"]
+homepage = "https://astar.network"
+repository = "https://github.com/AstarNetwork/Astar"
+
+[dependencies]
+serde = { version = "1.0.81", optional = true }
+
+frame-support = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+frame-system = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+parity-scale-codec = { version = "3.6.1", default-features = false, features = ["derive"] }
+scale-info = { version = "2.5.0", default-features = false }
+sp-core = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-io = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-runtime = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-std = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+
+[dev-dependencies]
+assert_matches = "1.3.0"
+hex-literal = "0.4.1"
+libsecp256k1 = "0.7.0"
+pallet-balances = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-keyring = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+
+[features]
+default = ["std"]
+std = [
+	"serde",
+	"parity-scale-codec/std",
+	"pallet-balances/std",
+	"scale-info/std",
+	"sp-io/std",
+	"sp-std/std",
+	"sp-core/std",
+	"sp-runtime/std",
+	"frame-support/std",
+	"frame-system/std",
+]
+try-runtime = ["frame-support/try-runtime"]

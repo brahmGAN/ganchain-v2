@@ -1,0 +1,33 @@
+[package]
+name = "pallet-evm-precompile-bw6761"
+version = "1.0.0-dev"
+authors = { workspace = true }
+edition = { workspace = true }
+repository = { workspace = true }
+
+[dependencies]
+# Arkworks
+ark-bw6-761 = { workspace = true }
+ark-ec = { workspace = true }
+ark-ff = { workspace = true }
+ark-std = { workspace = true }
+
+# Frontier
+fp-evm = { workspace = true }
+
+[dev-dependencies]
+# Frontier
+pallet-evm-test-vector-support = { workspace = true }
+
+[features]
+default = ["std"]
+std = [
+	# Arkworks
+	"ark-bw6-761/std",
+	"ark-ec/std",
+	"ark-ff/std",
+	"ark-std/std",
+
+	# Frontier
+	"fp-evm/std",
+]

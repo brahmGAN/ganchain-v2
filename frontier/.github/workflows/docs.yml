@@ -1,0 +1,50 @@
+name: Docs
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  release:
+    name: Deploy docs
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Rust Setup
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: nightly-2023-05-23
+          target: wasm32-unknown-unknown
+          override: true
+          components: rust-docs
+      - name: Install protoc
+        uses: arduino/setup-protoc@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build website
+        run: |
+          cd docs
+          yarn install
+          yarn run build
+
+      - name: Build rustdocs
+        uses: actions-rs/cargo@v1
+        with:
+          command: doc
+          args: --all --no-deps
+
+      - name: Copy rustdocs
+        run: |
+          cp -r ./target/doc docs/.vuepress/dist/rustdocs
+
+      - name: Deploy documentation
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_branch: gh-pages
+          publish_dir: ./docs/.vuepress/dist
+          keep_files: true

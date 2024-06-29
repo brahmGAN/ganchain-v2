@@ -1,0 +1,20 @@
+[package]
+name = "pallet-evm-precompile-sha3fips"
+version = "2.0.0-dev"
+authors = ["Parity Technologies <admin@parity.io>", "Drew Stone <drew@commonwealth.im>"]
+license = "Apache-2.0"
+description = "SHA3 FIPS202 precompile for EVM pallet."
+edition = { workspace = true }
+repository = { workspace = true }
+
+[dependencies]
+tiny-keccak = { version = "2.0", features = ["fips202"] }
+# Frontier
+fp-evm = { workspace = true }
+
+[features]
+default = ["std"]
+std = [
+	# Frontier
+	"fp-evm/std",
+]

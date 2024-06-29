@@ -1,0 +1,59 @@
+[package]
+name = "fc-mapping-sync"
+version = "2.0.0-dev"
+license = "GPL-3.0-or-later WITH Classpath-exception-2.0"
+description = "Mapping sync logic for Frontier."
+authors = { workspace = true }
+edition = { workspace = true }
+repository = { workspace = true }
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+futures = { workspace = true }
+futures-timer = "3.0.2"
+log = { workspace = true }
+parking_lot = { workspace = true }
+tokio = { workspace = true, features = ["macros", "sync"], optional = true }
+# Substrate
+sc-client-api = { workspace = true }
+sc-utils = { workspace = true }
+sp-api = { workspace = true }
+sp-blockchain = { workspace = true }
+sp-consensus = { workspace = true, features = ["default"] }
+sp-core = { workspace = true, optional = true }
+sp-runtime = { workspace = true }
+# Frontier
+fc-db = { workspace = true, default-features = false }
+fc-storage = { workspace = true }
+fp-consensus = { workspace = true, features = ["default"] }
+fp-rpc = { workspace = true, features = ["default"] }
+
+[dev-dependencies]
+ethereum = { workspace = true }
+ethereum-types = { workspace = true }
+scale-codec = { package = "parity-scale-codec", workspace = true }
+sqlx = { workspace = true, features = ["runtime-tokio-native-tls", "sqlite"] }
+tempfile = "3.3.0"
+tokio = { workspace = true, features = ["sync"] }
+# Substrate
+sc-block-builder = { workspace = true }
+sc-client-db = { workspace = true, features = ["rocksdb"] }
+sp-consensus = { workspace = true }
+sp-core = { workspace = true, features = ["default"] }
+sp-io = { workspace = true }
+substrate-test-runtime-client = { workspace = true }
+# Frontier
+fp-consensus = { workspace = true, features = ["default"] }
+fp-storage = { workspace = true, features = ["default"] }
+frontier-template-runtime = { workspace = true, features = ["default"] }
+
+[features]
+default = ["rocksdb"]
+rocksdb = ["fc-db/rocksdb"]
+sql = [
+	"tokio",
+	"sp-core",
+	"fc-db/sql",
+]

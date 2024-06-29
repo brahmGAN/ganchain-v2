@@ -1,0 +1,78 @@
+[package]
+name = "pallet-ethereum"
+version = "4.0.0-dev"
+license = "Apache-2.0"
+description = "Ethereum compatibility full block processing emulation pallet for Substrate."
+authors = { workspace = true }
+edition = { workspace = true }
+repository = { workspace = true }
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+ethereum = { workspace = true, features = ["with-codec"] }
+ethereum-types = { workspace = true }
+evm = { workspace = true, features = ["with-codec"] }
+scale-codec = { package = "parity-scale-codec", workspace = true }
+scale-info = { workspace = true }
+# Substrate
+frame-support = { workspace = true }
+frame-system = { workspace = true }
+sp-io = { workspace = true }
+sp-runtime = { workspace = true }
+sp-std = { workspace = true }
+# Frontier
+fp-consensus = { workspace = true }
+fp-ethereum = { workspace = true }
+fp-evm = { workspace = true }
+fp-rpc = { workspace = true }
+fp-storage = { workspace = true }
+pallet-evm = { workspace = true }
+
+[dev-dependencies]
+hex = { workspace = true }
+libsecp256k1 = { workspace = true, features = ["static-context", "hmac"] }
+rlp = { workspace = true }
+# Substrate
+pallet-balances = { workspace = true, features = ["default"] }
+pallet-timestamp = { workspace = true, features = ["default"] }
+sp-core = { workspace = true, features = ["default"] }
+# Frontier
+fp-self-contained = { workspace = true, features = ["default"] }
+
+[features]
+default = ["std"]
+std = [
+	"ethereum/std",
+	"evm/std",
+	"ethereum-types/std",
+	"rlp/std",
+	"scale-codec/std",
+	"scale-info/std",
+	# Substrate
+	"frame-support/std",
+	"frame-system/std",
+	"sp-io/std",
+	"sp-runtime/std",
+	"sp-std/std",
+	# Frontier
+	"fp-consensus/std",
+	"fp-ethereum/std",
+	"fp-evm/std",
+	"fp-rpc/std",
+	"fp-self-contained/std",
+	"fp-storage/std",
+	"pallet-evm/std",
+]
+runtime-benchmarks = [
+	"frame-support/runtime-benchmarks",
+	"frame-system/runtime-benchmarks",
+	"pallet-evm/runtime-benchmarks",
+]
+try-runtime = [
+	"frame-support/try-runtime",
+	"frame-system/try-runtime",
+	"pallet-evm/try-runtime",
+]
+forbid-evm-reentrancy = ["pallet-evm/forbid-evm-reentrancy"]

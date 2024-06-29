@@ -1,0 +1,28 @@
+[package]
+name = "gpu-primitives"
+version = "1.0.1"
+authors = ["gpu <info@gpu.org>"]
+edition = "2021"
+
+[dependencies]
+sp-core = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-std = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-runtime = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+
+frame-support = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+
+pallet-assets = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-evm = { path = "../frontier/frame/evm", default-features = false }
+pallet-evm-precompile-assets-erc20 = { path = "../pallets/precompiles/assets-erc20", default-features = false }
+
+[features]
+default = [ "std" ]
+std = [
+	"sp-core/std",
+	"sp-runtime/std",
+	"sp-std/std",
+	"frame-support/std",
+	"pallet-assets/std",
+	"pallet-evm/std",
+	"pallet-evm-precompile-assets-erc20/std"
+]

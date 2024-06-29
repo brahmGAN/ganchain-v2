@@ -1,0 +1,8 @@
+{
+  "name": "substrate-evm-contracts",
+  "version": "0.0.0",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.9.2",
+    "truffle": "^5.6.7"
+  }
+}

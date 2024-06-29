@@ -1,0 +1,94 @@
+name: Rust
+
+on:
+  push:
+    branches:
+      - master
+      - 'polkadot-v**'
+  pull_request:
+    branches:
+      - master
+      - 'polkadot-v**'
+
+jobs:
+  build:
+    name: 'Run Rust tests'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Rust Setup
+      uses: actions-rs/toolchain@v1
+      with:
+        profile: minimal
+        toolchain: nightly-2023-05-23
+        target: wasm32-unknown-unknown
+        override: true
+    - name: Install protoc
+      uses: arduino/setup-protoc@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Run tests
+      run: cargo test --locked --verbose --all
+
+  integration:
+    name: 'Run integration tests'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Rust Setup
+      uses: actions-rs/toolchain@v1
+      with:
+        profile: minimal
+        toolchain: nightly-2023-05-23
+        target: wasm32-unknown-unknown
+        override: true
+    - name: Install protoc
+      uses: arduino/setup-protoc@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Build client
+      run: |
+        cd template/node
+        cargo build --release --locked --verbose --features rpc-binary-search-estimate
+    - name: Use Node.js 18
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+    - name: Install functional tests typescript
+      run: cd ts-tests && npm install
+    - name: Check functional tests format
+      run: cd ts-tests && npm run fmt-check
+    - name: Run functional tests
+      run: cd ts-tests && npm run build && npm run test
+    - name: Run functional tests (sql)
+      run: cd ts-tests && npm run build && npm run test-sql
+
+  lint:
+    name: 'Run lints'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Rust Setup
+      uses: actions-rs/toolchain@v1
+      with:
+        profile: minimal
+        toolchain: nightly-2023-05-23
+        target: wasm32-unknown-unknown
+        override: true
+        components: rustfmt, clippy
+    - name: Install protoc
+      uses: arduino/setup-protoc@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Check Cargo.toml Format
+      run: |
+        if taplo --version &> /dev/null; then
+          echo "taplo-cli is already installed"
+        else
+          cargo install taplo-cli
+        fi
+        taplo fmt --check
+    - name: Rustfmt
+      run: cargo fmt --all -- --check
+    - name: Clippy
+      run: cargo clippy --all --features runtime-benchmarks,try-runtime -- -D warnings

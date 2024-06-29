@@ -1,0 +1,27 @@
+[package]
+name = "fp-consensus"
+version = "2.0.0-dev"
+license = "Apache-2.0"
+description = "Primitives for Frontier consensus."
+authors = { workspace = true }
+edition = { workspace = true }
+repository = { workspace = true }
+
+[dependencies]
+ethereum = { workspace = true, features = ["with-codec"] }
+scale-codec = { package = "parity-scale-codec", workspace = true }
+# Substrate
+sp-core = { workspace = true }
+sp-runtime = { workspace = true }
+sp-std = { workspace = true }
+
+[features]
+default = ["std"]
+std = [
+	"ethereum/std",
+	"scale-codec/std",
+	# Substrate
+	"sp-core/std",
+	"sp-runtime/std",
+	"sp-std/std",
+]

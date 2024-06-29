@@ -1,0 +1,49 @@
+[package]
+name = "gpu-rpc"
+version = "1.0.1"
+authors = ["gpu <info@gpu.org>"]
+edition = "2021"
+
+[dependencies]
+jsonrpsee = { version = "0.16.2", features = ["server"] }
+sc-client-api = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sp-blockchain = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sp-keystore = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sp-runtime = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sp-api = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sp-consensus = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sp-consensus-babe = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-network = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-network-sync = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-transaction-pool = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-chain-spec = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-rpc = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-service = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-consensus-babe = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-consensus-babe-rpc = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-consensus-epochs = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-consensus-grandpa = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-rpc-spec-v2 = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-consensus-grandpa-rpc = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-rpc-api = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-sync-state-rpc = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+txpool-api = { package = "sc-transaction-pool-api", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+frame-rpc-system = { package = "substrate-frame-rpc-system", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+pallet-transaction-payment-rpc = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sp-block-builder = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sp-core = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sp-statement-store = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+substrate-state-trie-migration-rpc = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+
+gpu-primitives = { path = "../primitives" }
+
+# Frontier
+fc-cli = { path = "../frontier/client/cli" }
+fc-consensus = { path = "../frontier/client/consensus" }
+fc-db = { path = "../frontier/client/db" }
+fc-mapping-sync = { path = "../frontier/client/mapping-sync" }
+fc-rpc = { path = "../frontier/client/rpc" }
+fc-rpc-core = { path = "../frontier/client/rpc-core" }
+fc-storage = { path = "../frontier/client/storage" }
+fp-rpc = { path = "../frontier/primitives/rpc", features = ["default"] }
+gpu-runtime = { path = "../runtime/gpu", features = ["std"] }

@@ -1,0 +1,10 @@
+{
+    "jsonrpc":"2.0",
+    "id":1,
+    "method":"author_insertKey",
+    "params": [
+        "babe",
+        "kangaroo talent vintage clarify follow pupil room wife north crunch surge chimney//1//babe",
+        "0x0ce71e0c2f241ae49d4c8b1bf3371f9b853a969ed26c12f6e7aaacdf22928d5e"
+    ]
+}

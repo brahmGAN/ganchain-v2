@@ -1,0 +1,10 @@
+{
+    "jsonrpc":"2.0",
+    "id":1,
+    "method":"author_insertKey",
+    "params": [
+        "babe",
+        "bullet bargain crack true bracket hunt violin miss quantum dignity misery outside//1//babe",
+        "0xeabec9fb9f77577afa24c26f34b0985c5ee2dc517cdd4d63bb79b8961247a312"
+    ]
+}

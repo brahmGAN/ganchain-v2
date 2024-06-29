@@ -1,0 +1,28 @@
+[package]
+name = "pallet-evm-precompile-simple"
+version = "2.0.0-dev"
+license = "Apache-2.0"
+description = "Simple precompiles for EVM pallet."
+edition = { workspace = true }
+repository = { workspace = true }
+
+[dependencies]
+ripemd = { version = "0.1", default-features = false }
+# Substrate
+sp-io = { workspace = true }
+# Frontier
+fp-evm = { workspace = true }
+
+[dev-dependencies]
+# Frontier
+pallet-evm-test-vector-support = { workspace = true }
+
+[features]
+default = ["std"]
+std = [
+	"ripemd/std",
+	# Substrate
+	"sp-io/std",
+	# Frontier
+	"fp-evm/std",
+]

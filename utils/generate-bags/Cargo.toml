@@ -1,0 +1,13 @@
+[package]
+name = "gpu-voter-bags"
+version = "1.0.0"
+authors = ["gpu <info@gpu.org>"]
+edition = "2021"
+
+[dependencies]
+clap = { version = "4.0.9", features = ["derive"] }
+
+generate-bags = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sp-io = { git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+
+gpu-runtime = { path = "../../runtime/gpu" }

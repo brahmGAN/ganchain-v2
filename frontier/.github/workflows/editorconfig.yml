@@ -1,0 +1,27 @@
+name: Editorconfig
+
+on:
+  push:
+    branches:
+      - master
+      - 'polkadot-v**'
+  pull_request:
+    branches:
+      - master
+      - 'polkadot-v**'
+
+jobs:
+  check:
+    name: 'Check editorconfig'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Submodules
+        run: git submodule update --init --recursive
+      - name: Init
+        run: |
+          wget https://github.com/editorconfig-checker/editorconfig-checker/releases/download/2.1.0/ec-linux-amd64.tar.gz
+          tar xvf ec-linux-amd64.tar.gz
+          chmod +x bin/ec-linux-amd64
+      - name: Check
+        run: bin/ec-linux-amd64

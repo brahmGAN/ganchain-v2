@@ -1,0 +1,10 @@
+{
+    "jsonrpc":"2.0",
+    "id":1,
+    "method":"author_insertKey",
+    "params": [
+        "audi",
+        "mask visual float surface digital void found eyebrow hat quit place shed//1//authority_discovery",
+        "0xe24f2bc6bd20fcef0a8a0bc9477fd7c207359d7a369e46754c7ddb6e23df2f40"
+    ]
+}

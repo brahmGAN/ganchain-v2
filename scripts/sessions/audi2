@@ -1,0 +1,10 @@
+{
+    "jsonrpc":"2.0",
+    "id":1,
+    "method":"author_insertKey",
+    "params": [
+        "audi",
+        "bullet bargain crack true bracket hunt violin miss quantum dignity misery outside//1//authority_discovery",
+        "0x725d3639312f1f716f31dade26495e97c0449a943d292119cf696e1d863df05b"
+    ]
+}

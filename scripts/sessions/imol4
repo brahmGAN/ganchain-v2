@@ -1,0 +1,10 @@
+{
+    "jsonrpc":"2.0",
+    "id":1,
+    "method":"author_insertKey",
+    "params": [
+        "imol",
+        "mask visual float surface digital void found eyebrow hat quit place shed//1//im_online",
+        "0xa0744878ad080ed78bddf98a4687ac7c81f4102d19b180380439d2eb37854803"
+    ]
+}

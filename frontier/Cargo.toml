@@ -1,0 +1,172 @@
+[workspace]
+members = [
+	"frame/base-fee",
+	"frame/dynamic-fee",
+	"frame/ethereum",
+	"frame/evm",
+	"frame/evm-chain-id",
+	"frame/hotfix-sufficients",
+	"frame/evm/precompile/sha3fips",
+	"frame/evm/precompile/simple",
+	"frame/evm/precompile/modexp",
+	"frame/evm/precompile/ed25519",
+	"frame/evm/precompile/bn128",
+	"frame/evm/precompile/blake2",
+	"frame/evm/precompile/bw6761",
+	"frame/evm/precompile/bls12377",
+	"frame/evm/precompile/dispatch",
+	"frame/evm/precompile/curve25519",
+	"client/consensus",
+	"client/rpc-core",
+	"client/rpc",
+	"client/db",
+	"client/storage",
+	"client/mapping-sync",
+	"primitives/account",
+	"primitives/consensus",
+	"primitives/dynamic-fee",
+	"primitives/evm",
+	"primitives/rpc",
+	"primitives/self-contained",
+	"template/node",
+	"template/runtime",
+]
+resolver = "2"
+
+[workspace.package]
+authors = ["Parity Technologies <admin@parity.io>"]
+edition = "2021"
+repository = "https://github.com/paritytech/frontier/"
+
+[workspace.dependencies]
+async-trait = "0.1"
+bn = { package = "substrate-bn", version = "0.6", default-features = false }
+clap = { version = "4.3", features = ["derive", "deprecated"] }
+environmental = { version = "1.1.4", default-features = false }
+ethereum = { version = "0.14.0", default-features = false }
+ethereum-types = { version = "0.14.1", default-features = false }
+evm = { git = "https://github.com/rust-blockchain/evm", rev = "b7b82c7e1fc57b7449d6dfa6826600de37cc1e65", default-features = false }
+futures = "0.3.28"
+hex = { version = "0.4.3", default-features = false, features = ["alloc"] }
+hex-literal = "0.4.1"
+impl-serde = { version = "0.4.0", default-features = false }
+jsonrpsee = "0.16.2"
+kvdb-rocksdb = "0.19.0"
+libsecp256k1 = { version = "0.7.1", default-features = false }
+log = { version = "0.4.17", default-features = false }
+parity-db = "0.4.9"
+parking_lot = "0.12.1"
+rlp = { version = "0.5.2", default-features = false }
+scale-codec = { package = "parity-scale-codec", version = "3.6.1", default-features = false, features = ["derive"] }
+scale-info = { version = "2.9.0", default-features = false, features = ["derive"] }
+serde = { version = "1.0", default-features = false, features = ["derive", "alloc"] }
+serde_json = "1.0"
+sqlx = { version = "0.7.1", default-features = false, features = ["macros"] }
+thiserror = "1.0"
+tokio = "1.29.1"
+# Substrate Client
+sc-basic-authorship = { version = "0.10.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-block-builder = { version = "0.10.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-chain-spec = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-cli = { version = "0.10.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sc-client-api = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-client-db = { version = "0.10.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sc-consensus = { version = "0.10.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-consensus-aura = { version = "0.10.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-consensus-grandpa = { version = "0.10.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-consensus-manual-seal = { version = "0.10.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-executor = { version = "0.10.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-keystore = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-network = { version = "0.10.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-network-common = { version = "0.10.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-network-sync = { version = "0.10.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-offchain = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-rpc = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-rpc-api = { version = "0.10.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-service = { version = "0.10.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sc-telemetry = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-transaction-pool = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-transaction-pool-api = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sc-utils = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+# Substrate Primitive
+sp-api = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-block-builder = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-blockchain = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sp-consensus = { version = "0.10.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sp-consensus-aura = { version = "0.10.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-consensus-grandpa = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-core = { version = "21.0.0", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-database = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sp-inherents = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-io = { version = "23.0.0", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-keyring = { version = "24.0.0", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+sp-offchain = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-runtime = { version = "24.0.0", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-runtime-interface = { version = "17.0.0", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-session = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-state-machine = { version = "0.28.0", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-std = { version = "8.0.0", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-storage = { version = "13.0.0", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-timestamp = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-transaction-pool = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-trie = { version = "22.0.0", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+sp-version = { version = "22.0.0", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+# Substrate FRAME
+frame-benchmarking = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+frame-executive = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+frame-support = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+frame-system = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+frame-system-benchmarking = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+frame-system-rpc-runtime-api = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-aura = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-balances = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-grandpa = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-sudo = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-timestamp = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-transaction-payment = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-transaction-payment-rpc = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+pallet-transaction-payment-rpc-runtime-api = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+pallet-utility = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0", default-features = false }
+# Substrate Utility
+frame-benchmarking-cli = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+prometheus-endpoint = { package = "substrate-prometheus-endpoint", version = "0.10.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+substrate-build-script-utils = { version = "3.0.0", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+substrate-frame-rpc-system = { version = "4.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+substrate-test-runtime-client = { version = "2.0.0", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+substrate-wasm-builder = { version = "5.0.0-dev", git = "https://github.com/brahmGAN/substrate", branch = "polkadot-v1.0.0" }
+# Frontier Client
+fc-cli = { version = "1.0.0-dev", path = "client/cli", default-features = false }
+fc-consensus = { version = "2.0.0-dev", path = "client/consensus" }
+fc-db = { version = "2.0.0-dev", path = "client/db", default-features = false }
+fc-mapping-sync = { version = "2.0.0-dev", path = "client/mapping-sync", default-features = false }
+fc-rpc = { version = "2.0.0-dev", path = "client/rpc", default-features = false }
+fc-rpc-core = { version = "1.1.0-dev", path = "client/rpc-core" }
+fc-storage = { version = "1.0.0-dev", path = "client/storage" }
+# Frontier Primitive
+fp-account = { version = "1.0.0-dev", path = "primitives/account", default-features = false }
+fp-consensus = { version = "2.0.0-dev", path = "primitives/consensus", default-features = false }
+fp-dynamic-fee = { version = "1.0.0", path = "primitives/dynamic-fee", default-features = false }
+fp-ethereum = { version = "1.0.0-dev", path = "primitives/ethereum", default-features = false }
+fp-evm = { path = "primitives/evm", default-features = false }
+fp-rpc = { path = "primitives/rpc", default-features = false }
+fp-self-contained = { version = "1.0.0-dev", path = "primitives/self-contained", default-features = false }
+fp-storage = { version = "2.0.0", path = "primitives/storage", default-features = false }
+# Frontier FRAME
+pallet-base-fee = { version = "1.0.0", path = "frame/base-fee", default-features = false }
+pallet-dynamic-fee = { version = "4.0.0-dev", path = "frame/dynamic-fee", default-features = false }
+pallet-ethereum = { version = "4.0.0-dev", path = "frame/ethereum", default-features = false }
+pallet-evm = { version = "6.0.0-dev", path = "frame/evm", default-features = false }
+pallet-evm-chain-id = { version = "1.0.0-dev", path = "frame/evm-chain-id", default-features = false }
+pallet-evm-precompile-modexp = { version = "2.0.0-dev", path = "frame/evm/precompile/modexp", default-features = false }
+pallet-evm-precompile-sha3fips = { version = "2.0.0-dev", path = "frame/evm/precompile/sha3fips", default-features = false }
+pallet-evm-precompile-simple = { version = "2.0.0-dev", path = "frame/evm/precompile/simple", default-features = false }
+pallet-evm-test-vector-support = { version = "1.0.0-dev", path = "frame/evm/test-vector-support" }
+pallet-hotfix-sufficients = { version = "1.0.0", path = "frame/hotfix-sufficients", default-features = false }
+# Frontier Template
+frontier-template-runtime = { path = "template/runtime", default-features = false }
+# Arkworks
+ark-bls12-377 = { version = "0.4.0", default-features = false, features = ["curve"] }
+ark-bw6-761 = { version = "0.4.0", default-features = false }
+ark-ec = { version = "0.4.0", default-features = false }
+ark-ff = { version = "0.4.0", default-features = false }
+ark-std = { version = "0.4.0", default-features = false }

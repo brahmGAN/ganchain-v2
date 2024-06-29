@@ -1,0 +1,10 @@
+{
+    "jsonrpc":"2.0",
+    "id":1,
+    "method":"author_insertKey",
+    "params": [
+        "gran",
+        "rally danger scheme there cave keep early pond hour umbrella water blanket//1//grandpa",
+        "0x29e1203f7e3e17a0dbd0b3e95dc01822838f037b284b96bbad72f9f01ca314f9"
+    ]
+}

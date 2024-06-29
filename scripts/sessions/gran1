@@ -1,0 +1,10 @@
+{
+    "jsonrpc":"2.0",
+    "id":1,
+    "method":"author_insertKey",
+    "params": [
+        "gran",
+        "kangaroo talent vintage clarify follow pupil room wife north crunch surge chimney//1//grandpa",
+        "0x33fcddeb1c43a96449ff8aa6c6db4e3c3574b05425097e61927ff6f21d363dac"
+    ]
+}

@@ -1,0 +1,67 @@
+[package]
+name = "fc-db"
+version = "2.0.0-dev"
+license = "GPL-3.0-or-later WITH Classpath-exception-2.0"
+description = "Frontier database backend"
+authors = { workspace = true }
+edition = { workspace = true }
+repository = { workspace = true }
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+async-trait = { workspace = true }
+ethereum = { workspace = true, features = ["with-codec"], optional = true }
+futures = { workspace = true, optional = true }
+kvdb-rocksdb = { workspace = true, optional = true }
+log = { workspace = true }
+parity-db = { workspace = true }
+parking_lot = { workspace = true }
+scale-codec = { package = "parity-scale-codec", workspace = true }
+smallvec = { version = "1.10", optional = true }
+sqlx = { workspace = true, features = ["runtime-tokio-native-tls", "sqlite"], optional = true }
+tokio = { workspace = true, features = ["macros", "sync"], optional = true }
+# Substrate
+sc-client-api = { workspace = true, optional = true }
+sc-client-db = { workspace = true }
+sp-api = { workspace = true, optional = true }
+sp-blockchain = { workspace = true }
+sp-core = { workspace = true }
+sp-database = { workspace = true }
+sp-runtime = { workspace = true }
+sp-storage = { workspace = true, optional = true }
+# Frontier
+fc-storage = { workspace = true, optional = true }
+fp-consensus = { workspace = true, features = ["default"], optional = true }
+fp-rpc = { workspace = true, features = ["default"], optional = true }
+fp-storage = { workspace = true, features = ["default"] }
+
+[dev-dependencies]
+futures = { workspace = true }
+maplit = "1.0.2"
+tempfile = "3.3.0"
+# Substrate
+sc-block-builder = { workspace = true }
+sp-consensus = { workspace = true }
+substrate-test-runtime-client = { workspace = true }
+
+[features]
+default = ["rocksdb"]
+rocksdb = [
+	"kvdb-rocksdb",
+	"sc-client-db/rocksdb",
+	"smallvec",
+]
+sql = [
+	"ethereum",
+	"futures",
+	"sqlx",
+	"tokio",
+	"sc-client-api",
+	"sp-api",
+	"sp-storage",
+	"fc-storage",
+	"fp-consensus",
+	"fp-rpc",
+]

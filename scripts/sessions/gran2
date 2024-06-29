@@ -1,0 +1,10 @@
+{
+    "jsonrpc":"2.0",
+    "id":1,
+    "method":"author_insertKey",
+    "params": [
+        "gran",
+        "bullet bargain crack true bracket hunt violin miss quantum dignity misery outside//1//grandpa",
+        "0x9408cbeb2f251b9ccdf22852daccb4e2a25a609888dc272fb69b5ac2e57fbed2"
+    ]
+}

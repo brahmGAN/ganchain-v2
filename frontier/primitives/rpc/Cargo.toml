@@ -1,0 +1,42 @@
+[package]
+name = "fp-rpc"
+version = "3.0.0-dev"
+license = "Apache-2.0"
+description = "Runtime primitives for Ethereum RPC (web3) compatibility layer for Substrate."
+authors = { workspace = true }
+edition = { workspace = true }
+repository = { workspace = true }
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+ethereum = { workspace = true, features = ["with-codec"] }
+ethereum-types = { workspace = true }
+scale-codec = { package = "parity-scale-codec", workspace = true }
+scale-info = { workspace = true }
+# Substrate
+sp-api = { workspace = true }
+sp-core = { workspace = true }
+sp-runtime = { workspace = true }
+sp-state-machine = { workspace = true }
+sp-std = { workspace = true }
+# Frontier
+fp-evm = { workspace = true }
+
+[features]
+default = ["std"]
+std = [
+	"ethereum/std",
+	"ethereum-types/std",
+	"scale-codec/std",
+	"scale-info/std",
+	# Substrate
+	"sp-api/std",
+	"sp-state-machine/std",
+	"sp-core/std",
+	"sp-runtime/std",
+	"sp-std/std",
+	# Frontier
+	"fp-evm/std",
+]

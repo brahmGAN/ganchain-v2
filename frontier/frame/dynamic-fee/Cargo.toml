@@ -1,0 +1,53 @@
+[package]
+name = "pallet-dynamic-fee"
+version = "4.0.0-dev"
+license = "Apache-2.0"
+description = "Dynamic fee handling for EVM."
+authors = { workspace = true }
+edition = { workspace = true }
+repository = { workspace = true }
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+scale-codec = { package = "parity-scale-codec", workspace = true }
+scale-info = { workspace = true }
+# Substrate
+frame-support = { workspace = true }
+frame-system = { workspace = true }
+sp-core = { workspace = true }
+sp-inherents = { workspace = true }
+sp-runtime = { workspace = true }
+sp-std = { workspace = true }
+# Frontier
+fp-dynamic-fee = { workspace = true }
+fp-evm = { workspace = true }
+
+[dev-dependencies]
+# Substrate
+pallet-timestamp = { workspace = true, features = ["default"] }
+sp-io = { workspace = true, features = ["default"] }
+sp-runtime = { workspace = true, features = ["default"] }
+
+[features]
+default = ["std"]
+std = [
+	"scale-codec/std",
+	"scale-info/std",
+	# Substrate
+	"sp-core/std",
+	"sp-inherents/std",
+	"sp-runtime/std",
+	"sp-std/std",
+	# Substrate
+	"frame-system/std",
+	"frame-support/std",
+	# Frontier
+	"fp-dynamic-fee/std",
+	"fp-evm/std",
+]
+try-runtime = [
+	"frame-support/try-runtime",
+	"frame-system/try-runtime",
+]

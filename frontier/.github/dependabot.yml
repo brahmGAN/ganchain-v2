@@ -1,0 +1,26 @@
+version: 2
+
+updates:
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: daily
+      time: "03:00"
+      timezone: Europe/Berlin
+  - package-ecosystem: npm
+    directory: "/docs"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: cargo
+    directory: "/"
+    # Handle updates for crates from github.com/paritytech/substrate manually.
+    ignore:
+      - dependency-name: "sc-*"
+      - dependency-name: "sp-*"
+      - dependency-name: "frame-*"
+      - dependency-name: "pallet-*"
+      - dependency-name: "substrate-*"
+      - dependency-name: "beefy-*"
+      - dependency-name: "fork-tree"
+    schedule:
+      interval: "daily"
