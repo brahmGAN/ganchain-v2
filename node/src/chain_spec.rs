@@ -44,7 +44,7 @@ pub use gpu_runtime::RuntimeGenesisConfig;
 
 type AccountPublic = <Signature as Verify>::Signer;
 
-const STAGING_TELEMETRY_URL: &str = "ws://139.84.142.30:8001/submit/";
+const STAGING_TELEMETRY_URL: &str = "wss://telemetry.polkadot.io/submit";
 
 /// Node `ChainSpec` extensions.
 ///
@@ -176,7 +176,7 @@ fn staging_testnet_config_genesis() -> RuntimeGenesisConfig {
 	let root_key: AccountId = array_bytes::hex_n_into_unchecked(
 		// 5F9TWFHkXUGskaakup7XCUpMSUNSr3e3nK7Z82Aa8NYipH1M
 		// "88549d29c1da75923b6829d42aaeab762d608153adc9c6ef5febb925e7d50323",
-		"0xb0f6fcc2a39a461b15145138fc90b3137c0243a762fc02a4a80bbf46c9c16b0f"
+		"0xd993d45491765a71d2212d4242948a4e4a3293514ae30e5d0f6bc686c7bec4dd"
 	);
 
 	let endowed_accounts: Vec<AccountId> = vec![root_key.clone()];
@@ -184,11 +184,9 @@ fn staging_testnet_config_genesis() -> RuntimeGenesisConfig {
 	let mut val_accounts = Vec::new(); 
 
 
-	val_accounts.push((array_bytes::hex_n_into_unchecked("0x76317cae9d0dff3988402318d359628decfdd6ea50d59aefbbbb05fd8fbadd03"),5u32));
-	val_accounts.push((array_bytes::hex_n_into_unchecked("0xd8677e2bde94465acbd4769d15fd45000f90946ee38d9de024b15501eea5166f"),101u32));
 
-	// val_accounts.push((array_bytes::hex_n_into_unchecked("fa75f36332c30d971a9059b66a915b97b23ad901db097b442a30c3dd51e34f1c"),5u32));
-	// val_accounts.push((array_bytes::hex_n_into_unchecked("34b6ceff734d5fc80ca8f0595b95cb2bd9fe9f25639a78e0da815af73ad42f23"),101u32));
+	val_accounts.push((array_bytes::hex_n_into_unchecked("fa75f36332c30d971a9059b66a915b97b23ad901db097b442a30c3dd51e34f1c"),5u32));
+	val_accounts.push((array_bytes::hex_n_into_unchecked("34b6ceff734d5fc80ca8f0595b95cb2bd9fe9f25639a78e0da815af73ad42f23"),101u32));
 
 
 
@@ -376,20 +374,6 @@ pub fn testnet_genesis(
 						storage: Default::default(),
 					},
 				);
-				// map.insert(
-				// 	// H160 address of CI test runner account
-				// 	H160::from_str("f68cA4b0a449f86E16F41Cb687198D0ebbfb9843")
-				// 		.expect("internal H160 is valid; qed"),
-				// 	fp_evm::GenesisAccount {
-				// 		balance: U256::from(1997_000_000_000_000_000_000_000u128),
-				// 		// 	// .expect("internal U256 is valid; qed"),
-				// 		// balance: U256::from(1_000_000_000_000_000_000_000u128),
-				// 			// .expect("internal U256 is valid; qed"),
-				// 		code: Default::default(),
-				// 		nonce: Default::default(),
-				// 		storage: Default::default(),
-				// 	},
-				// );
 				map
 			},
 			..Default::default()
