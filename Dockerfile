@@ -2,7 +2,7 @@
 FROM ubuntu:latest
 
 # Install necessary packages
-RUN apt-get update && apt-get install -y wget
+RUN apt-get update && apt-get install -y wget && apt-get install -y curl
 
 # Set the working directory
 WORKDIR /app
