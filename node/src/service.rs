@@ -25,6 +25,7 @@ use crate::{
 	BackendType, Cli, EthConfiguration,
 };
 use codec::Encode;
+use crate::metrics::ChainMonitoringMetrics;
 use frame_benchmarking_cli::SUBSTRATE_REFERENCE_HARDWARE;
 use frame_system_rpc_runtime_api::AccountNonceApi;
 use futures::prelude::*;
@@ -186,7 +187,11 @@ pub fn new_partial(
 			Ok((worker, telemetry))
 		})
 		.transpose()?;
-
+	let monitoring_metrics = if let Some(registry) = config.prometheus_registry() {
+        Some(ChainMonitoringMetrics::register(registry)?)
+    } else {
+        None
+    };
 	let executor = sc_service::new_native_or_wasm_executor(&config);
 
 	let (client, backend, keystore_container, task_manager) =
@@ -299,6 +304,7 @@ pub fn new_partial(
 			babe_worker_handle,
 			telemetry,
 			frontier_backend,
+			monitoring_metrics,
 			overrides,
 		),
 	})
@@ -353,6 +359,7 @@ pub fn new_full_base(
 				babe_worker_handle,
 				mut telemetry,
 				frontier_backend,
+				monitoring_metrics,
 				overrides,
 			),
 	} = new_partial(&config, &eth_config)?;
@@ -766,3 +773,6 @@ pub fn new_full(config: Configuration, cli: Cli) -> Result<TaskManager, ServiceE
 
 	Ok(task_manager)
 }
+
+
+
