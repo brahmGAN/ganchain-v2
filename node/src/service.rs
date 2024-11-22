@@ -173,6 +173,7 @@ pub fn new_partial(
 			// Option<FilterPool>,
 			FrontierBackend,
 			Arc<fc_rpc::OverrideHandle<Block>>,
+			Option<ChainMonitoringMetrics>,
 		),
 	>,
 	ServiceError,
