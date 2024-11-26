@@ -553,8 +553,8 @@ impl OnUnbalanced<NegativeImbalance<Runtime>> for SudoAccount {
 }
 
 parameter_types! {
-	// Six sessions in an era (24 hours).
-	pub const SessionsPerEra: SessionIndex = prod_or_fast!(6, 1);//shubhchange
+	// Six sessions in an era (24 hours). Changed to 4
+	pub const SessionsPerEra: SessionIndex = prod_or_fast!(4, 1);//shubhchange
 
 	// 28 eras for unbonding (28 days).
 	pub const BondingDuration: sp_staking::EraIndex = 28;
@@ -747,6 +747,8 @@ impl pallet_grandpa::Config for Runtime {
 	type WeightInfo = ();
 	type MaxAuthorities = MaxAuthorities;
 	type MaxSetIdSessionEntries = MaxSetIdSessionEntries;
+
+	
 
 	type KeyOwnerProof = <Historical as KeyOwnerProofSystem<(KeyTypeId, GrandpaId)>>::Proof;
 
