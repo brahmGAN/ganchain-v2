@@ -30,6 +30,7 @@
 
 pub mod chain_spec;
 pub mod eth;
+pub mod metrics;
 
 #[macro_use]
 pub mod service;
