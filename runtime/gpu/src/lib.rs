@@ -994,6 +994,9 @@ construct_runtime! {
 		TransactionPayment: pallet_transaction_payment = 6,
 		Assets: pallet_assets = 7,
 
+		//nfthandler
+		Nftmap : pallet_nftmap = 102,
+
 		// Babe must be before session.
 		Authorship: pallet_authorship = 10,
 		Babe: pallet_babe = 11,
@@ -1009,9 +1012,6 @@ construct_runtime! {
 
 		// Fast unstake pallet: extension to staking.
 		FastUnstake: pallet_fast_unstake = 21,
-
-		//nfthandler
-		Nftmap : pallet_nftmap = 102,
 
 		// Governance stuff.
 		Treasury: pallet_treasury = 30,
