@@ -570,7 +570,7 @@ pub fn new_full_base(
 			force_authoring,
 			backoff_authoring_blocks,
 			babe_link,
-			block_proposal_slot_portion: SlotProportion::new(0.5),
+			block_proposal_slot_portion: SlotProportion::new(0.25), // changeed from 0.5, slower production rate,
 			max_block_proposal_slot_portion: None,
 			telemetry: telemetry.as_ref().map(|x| x.handle()),
 		};
@@ -681,8 +681,8 @@ pub fn new_full_base(
 
 	let grandpa_config = grandpa::Config {
 		// FIXME #1578 make this available through chainspec
-		gossip_duration: std::time::Duration::from_millis(333),
-		justification_period: 512,
+		gossip_duration: Duration::from_millis(1000), // Changed from 333
+    	justification_period: 256,
 		name: Some(name),
 		observer_enabled: false,
 		keystore,

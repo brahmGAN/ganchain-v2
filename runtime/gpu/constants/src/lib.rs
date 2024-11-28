@@ -42,9 +42,9 @@ pub mod currency {
 pub mod time {
 	use primitives::{BlockNumber, Moment};
 	use runtime_common::prod_or_fast;
-	pub const MILLISECS_PER_BLOCK: Moment = 6000;
+	pub const MILLISECS_PER_BLOCK: Moment = 12000;// Increase to 12 seconds;
 	pub const SLOT_DURATION: Moment = MILLISECS_PER_BLOCK;
-	pub const EPOCH_DURATION_IN_SLOTS: BlockNumber = prod_or_fast!(4 * HOURS, 1 * MINUTES); //shubhchange
+	pub const EPOCH_DURATION_IN_SLOTS: BlockNumber = prod_or_fast!(2 * HOURS, 1 * MINUTES); //shubhchange
 
 	// These time units are defined in number of blocks.
 	pub const MINUTES: BlockNumber = 60_000 / (MILLISECS_PER_BLOCK as BlockNumber);
