@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y wget && apt-get install -y curl
 WORKDIR /app
 
 # Download the binary file from GitHub
-RUN wget -O binary-file https://github.com/brahmGAN/ganchain-v2/releases/download/v1.0.0/gpu
+RUN wget -O binary-file https://github.com/brahmGAN/ganchain-v2/releases/download/v2.0.0/gpu
 
 # Give execute permission to the binary
 RUN chmod +x binary-file
@@ -17,4 +17,4 @@ RUN chmod +x binary-file
 ENV NAME="GANValidator"
 
 # Command to run the binary
-CMD ./binary-file --base-path chaindata/GanValidator --chain gpu --port 30333 --rpc-port 9933 --validator --name ${NAME}  --bootnodes /ip4/35.154.205.124/tcp/30335/ws/p2p/12D3KooWAhHneKawZeMo1Y4zwMcBb1Tc4sJG5KBqyaE25ou5GfKK
+CMD ./binary-file --base-path chaindata/GanValidator --chain gpu --port 30333 --rpc-port 9933 --validator --name ${NAME}  --bootnodes /ip4/3.64.87.46/tcp/30335/ws/p2p/12D3KooWDnsUzPhi6Dra6wRLooM9BSwDS4QmrfmzkTz6YW5nGVcm
