@@ -1,0 +1,16 @@
+#!/bin/bash
+cd brahmGAN || exit
+echo "Daily activity on $(date '+%Y-%m-%d')" >> log.txt
+git add log.txt
+git commit -m "Daily activity on $(date '+%Y-%m-%d')"
+git push origin main
+daily1
+daily2..
+daily3
+daily4
+daily5
+daily6
+daily7
+daily8
+daily9
+daily10
